@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja de Brinquedos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<h1>Loja de Brinquedos</h1>
+
+<input type="text" id="pesquisa" placeholder="Pesquisar..." onkeyup="filtrarProdutos()">
+
+<div class="carrinho" onclick="abrirCarrinho()">
+🛒 <span id="contador">0</span>
+</div>
+</header>
+
+<!-- MENU -->
+<div id="sidebar" class="sidebar">
+<h2>Categorias</h2>
+<ul>
+<li onclick="filtrarCategoria('todos')">Todos</li>
+<li onclick="filtrarCategoria('boneca')">Bonecas</li>
+<li onclick="filtrarCategoria('carrinho')">Carrinhos</li>
+<li onclick="filtrarCategoria('jogo')">Jogos</li>
+<li onclick="filtrarCategoria('pelucia')">Pelúcias</li>
+</ul>
+</div>
+
+<!-- PRODUTOS -->
+<main class="container">
+
+<div class="produto" data-categoria="boneca">
+<img src="https://via.placeholder.com/200">
+<h3>Boneca Barbie</h3>
+<p>R$ 79,90</p>
+<button onclick="adicionarCarrinho('Boneca Barbie',79.9)">Comprar</button>
+</div>
+
+<div class="produto" data-categoria="carrinho">
+<img src="https://via.placeholder.com/200">
+<h3>Carrinho Turbo</h3>
+<p>R$ 49,90</p>
+<button onclick="adicionarCarrinho('Carrinho Turbo',49.9)">Comprar</button>
+</div>
+
+<div class="produto" data-categoria="jogo">
+<img src="https://via.placeholder.com/200">
+<h3>Quebra Cabeça</h3>
+<p>R$ 39,90</p>
+<button onclick="adicionarCarrinho('Quebra Cabeça',39.9)">Comprar</button>
+</div>
+
+<div class="produto" data-categoria="pelucia">
+<img src="https://via.placeholder.com/200">
+<h3>Pelúcia Urso</h3>
+<p>R$ 59,90</p>
+<button onclick="adicionarCarrinho('Pelúcia Urso',59.9)">Comprar</button>
+</div>
+
+</main>
+
+<!-- CARRINHO -->
+<div id="carrinhoModal" class="modal">
+<div class="modal-content">
+<span class="fechar" onclick="fecharCarrinho()">×</span>
+<h2>Seu Carrinho</h2>
+<ul id="listaCarrinho"></ul>
+<p id="total"></p>
+<button onclick="finalizarCompra()">Finalizar Compra</button>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
